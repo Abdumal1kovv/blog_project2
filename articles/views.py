@@ -14,7 +14,7 @@ class ArticleListView(ListView):
     template_name = 'article_list.html'
 
 class ArticleDetailView(DetailView):
-    model =Article
+    model = Article
     template_name = 'article_detail.html'
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -38,7 +38,7 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class ArticleCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Article
     template_name = 'article_new.html'
-    fields = ('title', 'summary', 'body', 'photo',)
+    fields = ('title', 'summary', 'body', 'photo')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
